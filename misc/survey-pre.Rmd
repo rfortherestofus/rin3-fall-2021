@@ -1,0 +1,149 @@
+---
+title: "R in 3 Months Pre-Survey"
+author: "David Keyes"
+date: "3/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE,
+                      include = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(googlesheets4)
+library(janitor)
+library(scales)
+library(tidygeocoder)
+library(leaflet)
+library(gt)
+```
+
+# Where are Folks Located?
+
+
+```{r}
+locations <- read_sheet("https://docs.google.com/spreadsheets/d/1Jx6wQQNBClrcfMkfDcWuHjlLEVWHcj6Nk0sU7uVBOOg/edit?usp=sharing") %>% 
+  clean_names() %>% 
+  select(city:country) %>% 
+  geocode(method = "osm",
+          city = city,
+          state = state,
+          country = country)
+
+locations %>% 
+  leaflet() %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircleMarkers(~long, ~lat,
+                   color = "#FF7400",
+                   stroke = FALSE, 
+                   fillOpacity = 0.7,
+                   popup = ~city,
+                   clusterOptions = markerClusterOptions(showCoverageOnHover = FALSE))
+```
+
+
+
+# Survey Results
+
+
+```{r}
+# Import my data and get nice variable names
+survey_pre <- read_sheet("https://docs.google.com/spreadsheets/u/1/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit?usp=forms_web_b#gid=1201619159") %>% 
+  clean_names() %>% 
+  select(how_much_have_you_used_r:on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r)
+```
+
+## Tools you currently use for data analysis
+
+```{r}
+survey_pre %>% 
+  select(what_software_do_you_currently_use_for_data_analysis) %>% 
+  separate_rows(what_software_do_you_currently_use_for_data_analysis, sep = ",") %>% 
+  mutate(what_software_do_you_currently_use_for_data_analysis = str_remove(what_software_do_you_currently_use_for_data_analysis, "\\(especially for stats\\)")) %>% 
+  mutate(what_software_do_you_currently_use_for_data_analysis = str_trim(what_software_do_you_currently_use_for_data_analysis, side = "both")) %>% 
+  mutate(what_software_do_you_currently_use_for_data_analysis = str_replace(what_software_do_you_currently_use_for_data_analysis, "Qualtrixs", "Qualtrics")) %>% 
+  count(what_software_do_you_currently_use_for_data_analysis) %>% 
+  drop_na(what_software_do_you_currently_use_for_data_analysis) %>% 
+  arrange(desc(n)) %>% 
+  set_names("Tool", "Number of Responses") %>% 
+  gt()
+```
+
+## Tools you currently use for data viz
+
+```{r}
+survey_pre %>% 
+  select(what_software_do_you_currently_use_for_data_visualization) %>% 
+  separate_rows(what_software_do_you_currently_use_for_data_visualization,
+                sep = ",") %>% 
+  separate_rows(what_software_do_you_currently_use_for_data_visualization,
+                sep = " / ") %>% 
+  mutate(what_software_do_you_currently_use_for_data_visualization = str_trim(what_software_do_you_currently_use_for_data_visualization, side = "both")) %>% 
+  count(what_software_do_you_currently_use_for_data_visualization) %>% 
+  drop_na(what_software_do_you_currently_use_for_data_visualization) %>% 
+  arrange(desc(n)) %>% 
+  set_names("Tool", "Number of Responses") %>% 
+  gt()
+```
+
+
+## How much have you used R?
+
+```{r}
+survey_pre %>% 
+  count(how_much_have_you_used_r) %>% 
+  arrange(desc(n)) %>% 
+  set_names("How Much Have You Used R?", "Number of Responses") %>% 
+  gt()
+```
+
+
+## Self-rated expertise in using R for data analysis
+
+```{r}
+survey_pre %>% 
+  ggplot(aes(x = how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis)) +
+  geom_bar() +
+  scale_x_continuous(limits = c(1, 10),
+                     breaks = seq(1, 10, by = 1)) +
+  scale_y_continuous(breaks = pretty_breaks(n = 4)) +
+  labs(x = "Expertise Level",
+       y = "Number of People") +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank())
+```
+
+## Self-rated expertise in using R for data viz
+
+```{r}
+survey_pre %>% 
+  ggplot(aes(x = how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization)) +
+  geom_bar() +
+  scale_x_continuous(limits = c(1, 10),
+                     breaks = seq(1, 10, by = 1)) +
+  scale_y_continuous(breaks = pretty_breaks(n = 4)) +
+  labs(x = "Expertise Level",
+       y = "Number of People") +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank())
+```
+
+## On a scale from terrified to excited, how do you feel about the process of learning R?
+
+
+```{r}
+survey_pre %>% 
+  ggplot(aes(x = on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r)) +
+  geom_bar() +
+  scale_x_continuous(limits = c(1, 10),
+                     breaks = seq(1, 10, by = 1)) +
+  scale_y_continuous(breaks = pretty_breaks(n = 4)) +
+  labs(x = "Feelings About Learning R\n(0 = Terrified, 10 = Excited)",
+       y = "Number of People") +
+  theme_minimal() +
+  theme(panel.grid.minor = element_blank())
+```

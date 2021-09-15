@@ -5,11 +5,19 @@ library(tidygeocoder)
 library(rnaturalearth)
 library(sf)
 library(ggfx)
+library(lubridate)
+
+
+
+
+# All participants --------------------------------------------------------
+
+
 
 key <- Sys.getenv("WOOCOMMERCE_KEY")
 secret <- Sys.getenv("WOOCOMMERCE_SECRET")
 
-total_orders <- 3500
+total_orders <- 4000
 
 offset_numbers <- seq(0, total_orders, by = 100)
 
@@ -27,6 +35,8 @@ orders <- map_df(offset_numbers, get_wc_orders)
 rin3_orders <- orders %>% 
   unnest(line_items,
          names_repair = "universal") %>% 
+  mutate(date_created = ymd_hms(date_created)) %>% 
+  filter(date_created > ymd("2021-06-01")) %>% 
   filter(str_detect(name, "R in 3 Months")) %>% 
   pull(billing) %>% 
   select(city, state, country) %>% 
@@ -67,8 +77,10 @@ ggplot(country_shapefiles) +
         plot.background = element_rect(fill = "#6CABDD",
                                        color = "#6cabdd"),
         plot.margin = margin(10, 10, 10, 10, "pt")) +
-  labs(caption = "Learn more at rfor.us/3months",
-       title = "Users from around the world have signed up for R in 3 Months") 
+  labs(title = "R in 3 Months Fall 2021 Participants")
+  # labs(title = "Users from around the world have signed up for R in 3 Months",
+  #      caption = "Learn more at rfor.us/3months")
 
 ggsave("misc/rin3-signups.png",
        dpi = 300)
+

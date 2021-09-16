@@ -76,7 +76,7 @@ class: center, middle, dk-section-title
 
 ## David Keyes
 
-class: center, middle 
+class: center, middle
 
 ![](images/dk-headshot-color-2-square.png)
 
@@ -419,6 +419,8 @@ Let's learn a bit more about you!
 ---
 
 ## Project Assignment
+
+--
 
 - Write the introduction to your report in RMarkdown
 

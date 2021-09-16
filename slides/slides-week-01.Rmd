@@ -63,9 +63,11 @@ class: center, middle, dk-section-title
 
 ---
 
+class: center, middle
+
 ## David Keyes
 
-class: center, middle
+
 
 ![](images/dk-headshot-color-2-square.png)
 
@@ -344,7 +346,7 @@ class: dk-section-title, center, middle
 
 --
 
-- Office hours
+- Office hours 10:00am Pacific time
 
 --
 
@@ -360,7 +362,7 @@ class: dk-section-title, center, middle
 
 # Accountability
 
-Let's discuss!
+I will email those of you who expressed interest in having an accountability buddy.
 
 
 ---

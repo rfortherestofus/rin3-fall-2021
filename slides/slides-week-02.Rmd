@@ -153,5 +153,3 @@ Once we've introduced GitHub we can progress to working with Excel files (and an
 ???
 
 Note to David: I thought this was useful to mention? In Spring 2021 we already had folks using GitHub at this point... what do you think?
-
----

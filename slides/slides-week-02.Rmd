@@ -1,0 +1,136 @@
+---
+title: "R in 3 Months: Week 2 (RMarkdown)"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+```{r child = "setup.Rmd"}
+```
+
+
+
+# Agenda
+
+1. Housekeeping
+
+--
+
+1. Whole group: discuss common issues, visual editor, and cheatsheets
+
+--
+
+1. Breakout groups: discuss projects + do some exercises
+
+--
+
+1. Whole group: discuss GitHub
+
+--
+
+1. Next Week
+
+---
+
+# Housekeeping
+
+You should be getting emails when we post feedback
+
+You can watch everyone's feedback here: https://rfortherestofus.com/r-in-3-months-feedback-fall-2021/
+
+<!-- Note to David: If you make me an admin for the repo for the URL shortner I could make a short URL for this. -->
+
+???
+
+- Hopefully you've recieved an email with your feedback, let us know if that's not working
+
+- You can see everyone's feedback on the feedback page.
+
+---
+
+# Whole Group
+
+
+RMarkdown is particular about spacing
+
+--
+
+Styling of knitted RMarkdown documents
+
+--
+
+Visual editor
+
+--
+
+Maps
+
+???
+
+- Issues from not putting empty lines between distinct parts of the RMarkdown document - mostly this was issues with bullet point lists, but a lack of spacing between headings and paragraph text would have caused issues as the reports grew.
+
+- Adding blank lines between bullet points will increase spacing between bullets and improves readability of reports.
+
+- Styling of knitted RMarkdown documents
+
+- The visual editor is a new feature of RStudio (you might need to upgrade if you can't see it)
+
+- Charlie's going to put together a thread on the discussion page about making maps [David: I'll do this on Thursday]
+
+---
+
+# Breakout Groups
+
+1. Discuss your projects (what went well, what confused you, etc.).
+
+--
+
+1. Look at the gist at rfor.us/noknit. Figure out why it's not knitting. 
+
+--
+
+1. Look at the RMarkdown document at rfor.us/rmdknit. Guess what will happen when you knit it, then knit it and see if you were right. Discuss why/why not.
+
+---
+
+# Adding data files to Gists
+
+While we're using Gists in the course we're limited to data files being .csv files.
+
+You can add a .csv file by dragging it into your Gist.
+
+Once we've introduced GitHub we can progress to working with Excel files (and any other file types).
+
+???
+
+Note to David: I thought this was useful to mention? In Spring 2021 we already had folks using GitHub at this point... what do you think?
+
+---
+
+# For Next Week
+
+1. Complete data wrangling and analysis lessons in Fundamentals
+
+--
+
+1. Do some simple data analysis using your data and add it to your report
+
+--
+
+1. Set yourself up to connect to be able to connect to GitHub
+
+--
+
+1. Post your project as a GitHub repository (aka "repo")
+
+--
+
+1. Post the URL to your repository in the thread
+

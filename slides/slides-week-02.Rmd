@@ -39,13 +39,25 @@ output:
 
 ---
 
+class: dk-section-title, center, middle
+
 # Housekeeping
+
+---
+
+## Feedback
+
+![](images/feedback-example.gif)
+
+---
+
+## Feedback
 
 You should be getting emails when we post feedback
 
-You can watch everyone's feedback here: https://rfortherestofus.com/r-in-3-months-feedback-fall-2021/
+--
 
-<!-- Note to David: If you make me an admin for the repo for the URL shortner I could make a short URL for this. -->
+You can see everyone's feedback here: http://rfor.us/fall21feedback
 
 ???
 
@@ -55,7 +67,7 @@ You can watch everyone's feedback here: https://rfortherestofus.com/r-in-3-month
 
 ---
 
-# Whole Group
+# Common Issues
 
 
 RMarkdown is particular about spacing
@@ -70,6 +82,10 @@ Visual editor
 
 --
 
+Cheatsheets (see rfor.us/cheatsheets)
+
+--
+
 Maps
 
 ???
@@ -78,7 +94,7 @@ Maps
 
 - Adding blank lines between bullet points will increase spacing between bullets and improves readability of reports.
 
-- Styling of knitted RMarkdown documents
+- Styling of knitted RMarkdown documents. Let's talk about a few things: 1) we'll get to this more later, 2) how you style depends on your output format, 3) for now, people may just want to use pre-built themes.
 
 - The visual editor is a new feature of RStudio (you might need to upgrade if you can't see it)
 
@@ -100,19 +116,6 @@ Maps
 
 ---
 
-# Adding data files to Gists
-
-While we're using Gists in the course we're limited to data files being .csv files.
-
-You can add a .csv file by dragging it into your Gist.
-
-Once we've introduced GitHub we can progress to working with Excel files (and any other file types).
-
-???
-
-Note to David: I thought this was useful to mention? In Spring 2021 we already had folks using GitHub at this point... what do you think?
-
----
 
 # For Next Week
 
@@ -124,13 +127,31 @@ Note to David: I thought this was useful to mention? In Spring 2021 we already h
 
 --
 
-1. Set yourself up to connect to be able to connect to GitHub
+- Post your code as a [gist](http://gist.github.com/)
 
 --
 
-1. Post your project as a GitHub repository (aka "repo")
+
+1. Post the URL to your gist in the Week 3 Project Assignment Lesson
+
+---
+
+## Adding data files to Gists
 
 --
 
-1. Post the URL to your repository in the thread
+While we're using gists in the course we're limited to data files being .csv files.
 
+--
+
+You can add a .csv file by dragging it into your Gist.
+
+--
+
+Once we've introduced GitHub we can progress to working with Excel files (and any other file types).
+
+???
+
+Note to David: I thought this was useful to mention? In Spring 2021 we already had folks using GitHub at this point... what do you think?
+
+---

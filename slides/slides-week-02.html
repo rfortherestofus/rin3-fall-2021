@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R in 3 Months: Week 2 (RMarkdown)</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+    <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R in 3 Months: Week 2 (RMarkdown)
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="dk-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://rfortherestofus.com/" target="_blank"&gt;R for the Rest of Us
+&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+# Agenda
+
+1. Housekeeping
+
+--
+
+1. Whole group: discuss common issues, visual editor, and cheatsheets
+
+--
+
+1. Breakout groups: discuss projects + do some exercises
+
+--
+
+1. Whole group: discuss GitHub
+
+--
+
+1. Next Week
+
+---
+
+class: dk-section-title, center, middle
+
+# Housekeeping
+
+---
+
+## Feedback
+
+![](images/feedback-example.gif)
+
+---
+
+## Feedback
+
+You should be getting emails when we post feedback
+
+--
+
+You can see everyone's feedback here: http://rfor.us/fall21feedback
+
+???
+
+- Hopefully you've recieved an email with your feedback, let us know if that's not working
+
+- You can see everyone's feedback on the feedback page.
+
+---
+
+# Common Issues
+
+
+RMarkdown is particular about spacing
+
+--
+
+Styling of knitted RMarkdown documents
+
+--
+
+Visual editor
+
+--
+
+Cheatsheets (see rfor.us/cheatsheets)
+
+--
+
+Maps
+
+???
+
+- Issues from not putting empty lines between distinct parts of the RMarkdown document - mostly this was issues with bullet point lists, but a lack of spacing between headings and paragraph text would have caused issues as the reports grew.
+
+- Adding blank lines between bullet points will increase spacing between bullets and improves readability of reports.
+
+- Styling of knitted RMarkdown documents. Let's talk about a few things: 1) we'll get to this more later, 2) how you style depends on your output format, 3) for now, people may just want to use pre-built themes.
+
+- The visual editor is a new feature of RStudio (you might need to upgrade if you can't see it)
+
+- Charlie's going to put together a thread on the discussion page about making maps [David: I'll do this on Thursday]
+
+---
+
+# Breakout Groups
+
+1. Discuss your projects (what went well, what confused you, etc.).
+
+--
+
+1. Look at the gist at rfor.us/noknit. Figure out why it's not knitting. 
+
+--
+
+1. Look at the RMarkdown document at rfor.us/rmdknit. Guess what will happen when you knit it, then knit it and see if you were right. Discuss why/why not.
+
+---
+
+
+# For Next Week
+
+1. Complete data wrangling and analysis lessons in Fundamentals
+
+--
+
+1. Do some simple data analysis using your data and add it to your report
+
+--
+
+- Post your code as a [gist](http://gist.github.com/)
+
+--
+
+
+1. Post the URL to your gist in the Week 3 Project Assignment Lesson
+
+---
+
+## Adding data files to Gists
+
+--
+
+While we're using gists in the course we're limited to data files being .csv files.
+
+--
+
+You can add a .csv file by dragging it into your Gist.
+
+--
+
+Once we've introduced GitHub we can progress to working with Excel files (and any other file types).
+
+???
+
+Note to David: I thought this was useful to mention? In Spring 2021 we already had folks using GitHub at this point... what do you think?
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -30,6 +30,8 @@ layout: true
 
 # Agenda
 
+--
+
 1. Housekeeping
 
 --
@@ -39,10 +41,6 @@ layout: true
 --
 
 1. Breakout groups: discuss projects + do some exercises
-
---
-
-1. Whole group: discuss GitHub
 
 --
 
@@ -86,6 +84,7 @@ class: dk-section-title, center, middle
 
 ## Common Issues
 
+--
 
 RMarkdown is particular about spacing
 
@@ -155,7 +154,7 @@ class: dk-section-title, center, middle
 
 --
 
-- Post your code as a [gist](http://gist.github.com/)
+1. Post your code as a [gist](http://gist.github.com/)
 
 --
 

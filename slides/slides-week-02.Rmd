@@ -147,7 +147,6 @@ class: dk-section-title, center, middle
 
 --
 
-
 1. Post the URL to your gist in the Week 3 Project Assignment Lesson
 
 ---

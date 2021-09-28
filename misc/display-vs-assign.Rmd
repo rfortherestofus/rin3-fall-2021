@@ -1,0 +1,35 @@
+---
+title: "Display vs Assign"
+author: "David Keyes"
+date: "9/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(janitor)
+```
+
+```{r}
+nhanes <- read_csv("../data/nhanes.csv") %>% 
+  clean_names()
+```
+
+This just displays results.
+
+```{r}
+nhanes %>% 
+  mutate(height = round(height, digits = 0))
+```
+
+This changes the original data frame.
+
+```{r}
+nhanes <- nhanes %>% 
+  mutate(height = round(height, digits = 0))
+```
+

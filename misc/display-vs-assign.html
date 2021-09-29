@@ -180,39 +180,63 @@ pre code {
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(palmerpenguins)</code></pre>
-<pre class="r"><code>penguins</code></pre>
-<pre><code>## # A tibble: 344 × 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           NA            NA                  NA          NA
-##  5 Adelie  Torgersen           36.7          19.3               193        3450
-##  6 Adelie  Torgersen           39.3          20.6               190        3650
-##  7 Adelie  Torgersen           38.9          17.8               181        3625
-##  8 Adelie  Torgersen           39.2          19.6               195        4675
-##  9 Adelie  Torgersen           34.1          18.1               193        3475
-## 10 Adelie  Torgersen           42            20.2               190        4250
-## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
-<pre class="r"><code>penguins %&gt;% 
-  count(island)</code></pre>
-<pre><code>## # A tibble: 3 × 2
-##   island        n
-##   &lt;fct&gt;     &lt;int&gt;
-## 1 Biscoe      168
-## 2 Dream       124
-## 3 Torgersen    52</code></pre>
-<pre class="r"><code>penguins_summary &lt;- penguins %&gt;% 
-  count(island)</code></pre>
-<pre class="r"><code>penguins_summary</code></pre>
-<pre><code>## # A tibble: 3 × 2
-##   island        n
-##   &lt;fct&gt;     &lt;int&gt;
-## 1 Biscoe      168
-## 2 Dream       124
-## 3 Torgersen    52</code></pre>
+<pre class="r"><code>library(janitor)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;janitor&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     chisq.test, fisher.test</code></pre>
+<pre class="r"><code>nhanes &lt;- read_csv(&quot;../data/nhanes.csv&quot;) %&gt;% 
+  clean_names()</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_character(),
+##   ID = col_double(),
+##   Age = col_double(),
+##   Weight = col_double(),
+##   Height = col_double(),
+##   BMI = col_double(),
+##   DaysPhysHlthBad = col_double(),
+##   DaysMentHlthBad = col_double(),
+##   SleepHrsNight = col_double(),
+##   PhysActiveDays = col_double(),
+##   TVHrsDay = col_logical()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<pre><code>## Warning: 4859 parsing failures.
+##  row      col           expected    actual                 file
+## 5001 TVHrsDay 1/0/T/F/TRUE/FALSE 2_hr      &#39;../data/nhanes.csv&#39;
+## 5002 TVHrsDay 1/0/T/F/TRUE/FALSE More_4_hr &#39;../data/nhanes.csv&#39;
+## 5003 TVHrsDay 1/0/T/F/TRUE/FALSE 4_hr      &#39;../data/nhanes.csv&#39;
+## 5004 TVHrsDay 1/0/T/F/TRUE/FALSE 4_hr      &#39;../data/nhanes.csv&#39;
+## 5005 TVHrsDay 1/0/T/F/TRUE/FALSE 1_hr      &#39;../data/nhanes.csv&#39;
+## .... ........ .................. ......... ....................
+## See problems(...) for more details.</code></pre>
+<p>This just displays results.</p>
+<pre class="r"><code>nhanes %&gt;% 
+  mutate(height = round(height, digits = 0))</code></pre>
+<pre><code>## # A tibble: 10,000 × 22
+##       id survey_yr gender   age age_decade race1 education    marital_status
+##    &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;         
+##  1 51624 2009_10   male      34 30-39      White High School  Married       
+##  2 51624 2009_10   male      34 30-39      White High School  Married       
+##  3 51624 2009_10   male      34 30-39      White High School  Married       
+##  4 51625 2009_10   male       4 0-9        Other &lt;NA&gt;         &lt;NA&gt;          
+##  5 51630 2009_10   female    49 40-49      White Some College LivePartner   
+##  6 51638 2009_10   male       9 0-9        White &lt;NA&gt;         &lt;NA&gt;          
+##  7 51646 2009_10   male       8 0-9        White &lt;NA&gt;         &lt;NA&gt;          
+##  8 51647 2009_10   female    45 40-49      White College Grad Married       
+##  9 51647 2009_10   female    45 40-49      White College Grad Married       
+## 10 51647 2009_10   female    45 40-49      White College Grad Married       
+## # … with 9,990 more rows, and 14 more variables: hh_income &lt;chr&gt;,
+## #   home_own &lt;chr&gt;, work &lt;chr&gt;, weight &lt;dbl&gt;, height &lt;dbl&gt;, bmi &lt;dbl&gt;,
+## #   health_gen &lt;chr&gt;, days_phys_hlth_bad &lt;dbl&gt;, days_ment_hlth_bad &lt;dbl&gt;,
+## #   sleep_hrs_night &lt;dbl&gt;, phys_active &lt;chr&gt;, phys_active_days &lt;dbl&gt;,
+## #   tv_hrs_day &lt;lgl&gt;, smoke_now &lt;chr&gt;</code></pre>
+<p>This changes the original data frame.</p>
+<pre class="r"><code>nhanes &lt;- nhanes %&gt;% 
+  mutate(height = round(height, digits = 0))</code></pre>
 
 
 

@@ -26,11 +26,13 @@ library("wakefield")
 
 # Agenda
 
+--
+
 1. Housekeeping
 
 --
 
-1. Three Tips
+1. Common Issues
 
 --
 
@@ -44,9 +46,6 @@ library("wakefield")
 
 1. Group Work
 
---
-
-1. GitHub
 
 --
 
@@ -66,13 +65,24 @@ I don't really have any other suggestions for house keeping. I looked at the com
 
 ---
 
-# Three Tips
+# Common Issues
+
+--
+
+1. Display results vs assign
+
+--
+
+1. `group_by()` + `summmarize()` message
+
+--
 
 1. RMarkdown output below code chunks or in the console
 
 --
 
 1. It's possible to add multiple arguments to mutate instead of using mutate multiple times
+
 --
 
 1. Processing columns that contain something like "60-80%"
@@ -157,8 +167,12 @@ Presenter responds to questions
 
 What questions do you still have?
 
+---
+
 
 # Next Week
+
+--
 
 1. Course assignment: complete data viz lessons
 

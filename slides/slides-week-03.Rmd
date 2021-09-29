@@ -1,0 +1,135 @@
+---
+title: "R in 3 Months: Week 3 (Data Wrangling and Analysis)"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r child = "setup.Rmd"}
+```
+
+```{r, include=FALSE, eval = TRUE}
+options(htmltools.preserve.raw = FALSE)
+library("tidyverse")
+library("wakefield")
+```
+
+
+# Agenda
+
+1. Housekeeping
+
+--
+
+1. Three Tips
+
+--
+
+1. Workflow Advice
+
+--
+
+1. Group Work
+
+--
+
+1. GitHub
+
+--
+
+1. Next Week
+
+---
+
+# Housekeeping
+
+- Group check-in
+
+???
+
+We've had significantly fewer submissions (only 4 by Wednesday before office hours) so I'd like to do a check-in with folks about how they're doing.
+
+I don't really have any other suggestions for house keeping. I looked at the comment on the lessons and it looks like lots of issues are being resolved there.
+
+---
+
+# Three Tips
+
+1. RMarkdown output below code chunks or in the console
+
+--
+
+1. It's possible to add multiple arguments to mutate instead of using mutate multiple times
+--
+
+1. Processing columns that contain something like "60-80%"
+
+???
+
+I think it'd be useful to show that output by default goes below the code chunk but can be redirected into the console.
+
+---
+
+# Naming things advice
+
+Now we're starting to work with file paths the names of files will matter more and more.
+
+The [best and most complete advice](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf) for this comes from Jenny Bryan.
+
+But here are some tips:
+
+- Replace spaces with a dash (`-`)
+
+- Split parts parts of file names with _ (eg `week-2_Charlie-Hadley.Rmd`)
+
+- Prefix numbers with `0` to aid ordering files
+
+???
+
+I thought this was useful to add in this week?
+
+---
+
+# Group Work
+
+--
+
+Each person share your code (either share your Gist link or by sharing your screen)
+
+--
+
+Presenter gives a short (~1 minute overview)
+
+--
+
+Others look for one thing that doesn't make sense
+
+--
+
+Presenter responds to questions
+
+
+---
+
+# Data Wrangling and Analysis Questions
+
+What questions do you still have?
+
+
+# Next Week
+
+1. Course assignment: complete data viz lessons
+
+--
+
+1. Project assignment: make a graph from your data
+

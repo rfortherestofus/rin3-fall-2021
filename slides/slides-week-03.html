@@ -45,6 +45,10 @@ layout: true
 
 --
 
+1. Typos happen to everyone
+
+--
+
 1. Workflow Advice
 
 --
@@ -87,6 +91,36 @@ I don't really have any other suggestions for house keeping. I looked at the com
 ???
 
 I think it'd be useful to show that output by default goes below the code chunk but can be redirected into the console.
+
+---
+
+# Typos happen to everone
+
+.pull-left[
+&lt;img src='images/david-asking-for-help.png'/&gt;
+]
+
+.pull-right[
+
+```r
+library(tidyverse)
+library(tidycensus)
+library(janitor)
+
+get_acs(year = 2019,
+        geography = "county",
+        geometry = TRUE,
+        state =  "OR",
+        variables = "B01003_001") %&gt;% 
+  clean_names() %&gt;% 
+  mutate(
+    name = str_remove(name, " County")) %&gt;% 
+  rename(poulation = estimate,
+         county = name) %&gt;% 
+  select(county, population)
+```
+
+]
 
 ---
 

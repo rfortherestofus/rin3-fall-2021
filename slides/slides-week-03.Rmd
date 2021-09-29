@@ -34,6 +34,10 @@ library("wakefield")
 
 --
 
+1. Typos happen to everyone
+
+--
+
 1. Workflow Advice
 
 --
@@ -76,6 +80,35 @@ I don't really have any other suggestions for house keeping. I looked at the com
 ???
 
 I think it'd be useful to show that output by default goes below the code chunk but can be redirected into the console.
+
+---
+
+# Typos happen to everone
+
+.pull-left[
+<img src='images/david-asking-for-help.png'/>
+]
+
+.pull-right[
+```{r}
+library(tidyverse)
+library(tidycensus)
+library(janitor)
+
+get_acs(year = 2019,
+        geography = "county",
+        geometry = TRUE,
+        state =  "OR",
+        variables = "B01003_001") %>% 
+  clean_names() %>% 
+  mutate(
+    name = str_remove(name, " County")) %>% 
+  rename(poulation = estimate,
+         county = name) %>% 
+  select(county, population)
+```
+
+]
 
 ---
 

@@ -33,3 +33,17 @@ nhanes <- nhanes %>%
   mutate(height = round(height, digits = 0))
 ```
 
+```{r}
+nhanes_clean <- nhanes %>% 
+  mutate(height = round(height, digits = 0))
+```
+
+```{r}
+nhanes %>% 
+  mutate(height = round(height, digits = 0)) -> nhanes_clean_2
+```
+
+
+
+
+

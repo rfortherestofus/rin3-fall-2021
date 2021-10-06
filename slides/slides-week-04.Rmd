@@ -31,7 +31,7 @@ library(palmerpenguins)
 
 --
 
-1. Three Tips
+1. Four Tips
 
 --
 
@@ -57,7 +57,7 @@ library(palmerpenguins)
 
 class: inverse, center, middle
 
-# Three Tips
+# Four Tips
 
 ---
 

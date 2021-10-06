@@ -1,0 +1,156 @@
+---
+title: "R in 3 Months: Week 4 (Data Viz)"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r child = "setup.Rmd"}
+```
+
+```{r, include=FALSE, eval = TRUE}
+options(htmltools.preserve.raw = FALSE)
+library("tidyverse")
+library("wakefield")
+library(palmerpenguins)
+```
+
+
+# Agenda
+
+1. Housekeeping
+
+--
+
+1. Three Tips
+
+--
+
+1. Workflow Advice
+
+--
+
+1. More example data visualisations from David and Charlie
+
+--
+
+1. Next Week
+
+---
+
+# Housekeeping
+
+--
+
+- Next week we won't have a live session, but you can book a one-to-one with Charlie. 
+
+---
+
+class: inverse, center, middle
+
+# Three Tips
+
+---
+
+## Updating columns
+
+There's a base R way of doing things
+
+```{r}
+your_data$question_12 <- as.numeric(your_data$question_12)
+```
+
+... and there's the tidyverse way of doing things
+
+```{r}
+your_data <- your_data %>% 
+  mutate(question_12 = as.numeric(question_12))
+```
+
+---
+
+## coord_flip() is no longer necessary
+
+In [March 2020 ggplot2 3.0 was released](https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/) and removed the need to use `coord_flip()`.
+
+```{r}
+library(tidyverse)
+gss_cat %>% 
+  count(marital) %>% 
+  ggplot(aes(x = marital,
+             y = n)) +
+  geom_col() +
+  coord_flip()
+```
+
+
+---
+
+# "Removed XX rows containing non-finite values (stat_bin)"
+
+---
+
+```{r eval = TRUE, message=TRUE, warning = TRUE}
+ggplot(data = penguins,
+       aes(x = bill_length_mm,
+           y = bill_depth_mm)) +
+  geom_point()
+```
+
+
+---
+
+# Save Source, not Workspace
+
+Why do we not want to reload our data when we start RStudio? 
+
+---
+
+class: center, middle
+
+[![](https://rstats.wtf/img/if-you-liked-it-you-should-have-saved-the-source-for-it.jpg)](https://rstats.wtf/save-source.html)
+
+Source: [rstats.wtf](https://rstats.wtf/save-source.html)
+
+---
+
+class: inverse, center, middle
+
+# More data visualisation examples
+
+
+---
+
+# Oregon by the Numbers Example
+
+---
+
+# Using conditions in aes()
+
+---
+
+# Data Visualization Questions
+
+What questions do you still have? 
+
+---
+
+# Next Week
+
+1. `r emo::ji("desert_island")` Catch up week. `r emo::ji("desert_island")`
+
+--
+
+1. Book a one-to-one session with Charlie: [savvycal.com/charliejhadley-r-for-the-rest-of-us/chat](https://savvycal.com/charliejhadley-r-for-the-rest-of-us/chat)
+
+
+

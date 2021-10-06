@@ -1,0 +1,64 @@
+---
+title: "Fundamentals of Data Wrangling and Analysis Exercises"
+author: "R for the Rest of Us"
+output: 
+    html_document:
+        css: slides/style.css
+        toc: true
+        toc_depth: 1
+        toc_float: true
+        df_print: paged
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The exercises are part of the Fundamentals of R course. For more, see the [R for the Rest of Us website](https://rfortherestofus.com/courses/fundamentals/).
+
+# Load Packages
+
+Load the `tidyverse` and `janitor` packages.
+
+```{r}
+# YOUR CODE HERE
+library(tidyverse)
+library(janitor)
+```
+
+# Import NHANES Data
+
+Import the NHANES data to a data frame called `nhanes`. Then, use the `clean_names` function to create clean names for all of your variables.
+
+```{r}
+# YOUR CODE HERE
+nhanes <- read_csv(("../data/nhanes.csv"))
+nhanes <- clean_names(nhanes)
+
+nhanes <- read_csv("../data/nhanes.csv") %>% 
+  clean_names()
+```
+
+
+
+# select
+
+![](slides/images/select.png)
+
+With `select` we can select variables from the larger data frame. 
+
+Use `select` to show just the `marital_status` variable.
+
+```{r}
+# YOUR CODE HERE
+nhanes %>% 
+select(MaritalStatus)
+```
+##I've tried on multiple Projects, each time I see the tibble with clean names (no capital letters) but the subsequent code requires capitals
+
+```{r}
+nhanes %>% 
+  select(marital_status)
+```
+

@@ -106,6 +106,9 @@ ggplot(data = penguins,
   geom_point()
 ```
 
+---
+
+# Handling SPSS files with labelled columns
 
 ---
 

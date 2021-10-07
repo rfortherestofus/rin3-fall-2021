@@ -39,7 +39,7 @@ library(palmerpenguins)
 
 --
 
-1. More example data visualisations from David and Charlie
+1. More example data visualizations from David and Charlie
 
 --
 
@@ -51,7 +51,7 @@ library(palmerpenguins)
 
 --
 
-- Next week we won't have a live session, but you can book a one-to-one with Charlie. 
+- Next week we won't have a live session, but you can book a one-to-one with Charlie
 
 ---
 
@@ -82,6 +82,8 @@ your_data <- your_data %>%
 
 In [March 2020 ggplot2 3.0 was released](https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/) and removed the need to use `coord_flip()`.
 
+--
+
 ```{r}
 library(tidyverse)
 gss_cat %>% 
@@ -92,14 +94,36 @@ gss_cat %>%
   coord_flip()
 ```
 
+---
+
+```{r include = TRUE, eval = TRUE, fig.height = 5}
+library(tidyverse)
+gss_cat %>% 
+  count(marital) %>% 
+  ggplot(aes(x = marital,
+             y = n)) +
+  geom_col()
+```
 
 ---
 
-# "Removed XX rows containing non-finite values (stat_bin)"
+```{r include = TRUE, eval = TRUE, fig.height = 5}
+library(tidyverse)
+gss_cat %>% 
+  count(marital) %>% 
+  ggplot(aes(x = n,
+             y = marital)) +
+  geom_col()
+```
+
 
 ---
 
-```{r eval = TRUE, message=TRUE, warning = TRUE}
+## "Removed XX rows containing non-finite values (stat_bin)"
+
+---
+
+```{r eval = TRUE, message=TRUE, warning = TRUE, fig.height = 5}
 ggplot(data = penguins,
        aes(x = bill_length_mm,
            y = bill_depth_mm)) +
@@ -108,7 +132,7 @@ ggplot(data = penguins,
 
 ---
 
-# Handling SPSS files with labelled columns
+## Handling SPSS files with labelled columns
 
 ---
 
@@ -128,16 +152,16 @@ Source: [rstats.wtf](https://rstats.wtf/save-source.html)
 
 class: inverse, center, middle
 
-# More data visualisation examples
+# Data Viz Examples
 
 
 ---
 
-# Oregon by the Numbers Example
+## Oregon by the Numbers Example
 
 ---
 
-# Using conditions in aes()
+## Using conditions in `aes()`
 
 ---
 
@@ -153,7 +177,19 @@ What questions do you still have?
 
 --
 
-1. Book a one-to-one session with Charlie: [savvycal.com/charliejhadley-r-for-the-rest-of-us/chat](https://savvycal.com/charliejhadley-r-for-the-rest-of-us/chat)
+1. No additional assignments, but please complete anything you're behind on
+
+--
+
+1. No live session
+
+--
+
+1. Office hours **will** happen
+
+--
+
+1. Book a one-to-one session with Charlie: [rfor.us/charliechat](https://rfor.us/charliechat)
 
 
 

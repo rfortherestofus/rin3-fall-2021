@@ -27,6 +27,8 @@ library(palmerpenguins)
 
 # Agenda
 
+--
+
 1. Housekeeping
 
 --
@@ -172,6 +174,8 @@ What questions do you still have?
 ---
 
 # Next Week
+
+--
 
 1. `r emo::ji("desert_island")` Catch up week. `r emo::ji("desert_island")`
 

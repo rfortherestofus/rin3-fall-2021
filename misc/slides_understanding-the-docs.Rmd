@@ -1,0 +1,65 @@
+---
+title: "R in 3 Months: Understanding the docs"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r child = "setup.Rmd"}
+```
+
+```{r, include=FALSE, eval = TRUE}
+options(htmltools.preserve.raw = FALSE)
+```
+
+# Why do docs pages exist?
+
+CRAN **requires** that every function (and dataset) in a package has a documentation page.
+
+--
+
+This means docs pages are ***not*** written to be read by human beings - they're designed to pass a bunch of automated tests.
+
+--
+
+<br>
+
+... except some developers put a lot of effort into trying to make their documentation as helpful as possible.
+
+---
+
+### All function docs pages have these sections
+
+- **Description**
+
+  - A sentence to describe what the function does / or how to use the function.
+  
+--
+
+- **Usage statement**
+
+  - This shows the named arguments and their default values.
+  
+--
+
+- **Arguments**
+
+  - This documents how to use each argument introduced in the Usage section.
+
+--
+
+- **Examples**
+
+  - There should be some useful examples of how to use the function.
+
+
+

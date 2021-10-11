@@ -1,0 +1,30 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+starwars %>% 
+  count()
+```
+
+```{r}
+starwars %>% 
+  pivot_longer()
+```
+
+```{r}
+starwars %>% 
+  group_by(homeworld) %>% 
+  summarise(mean_height = mean(height, na.rm = TRUE))
+```
+
+```{r}
+praise::praise()
+```
+

@@ -25,6 +25,7 @@ starwars %>%
 ```
 
 ```{r}
-praise::praise()
+library(praise)
+praise("${Exclamation}! This ${rpackage} is ${adjective}!")
 ```
 

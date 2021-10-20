@@ -12,8 +12,17 @@ download.file("https://osf.io/2qphn/download",
 
 survey_data <- read_spss("data/General Social Survey_1991.SAV")
 
+survey_data %>% 
+  select(MARITAL)
+
 survey_data %>%
   mutate(across(where(is.labelled), as_factor))
+
+
+
+
+
+
 
 strip_labels <- function(data) {
   data %>% 

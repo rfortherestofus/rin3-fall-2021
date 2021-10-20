@@ -33,15 +33,11 @@ library(palmerpenguins)
 
 --
 
-1. Four Tips
+1. Three Tips
 
 --
 
-1. Workflow Advice
-
---
-
-1. More example data visualizations from David and Charlie
+1. GitHub Workflow Advice
 
 --
 
@@ -51,125 +47,72 @@ library(palmerpenguins)
 
 # Housekeeping
 
---
+- Catch-up Week
 
-- Next week we won't have a live session, but you can book a one-to-one with Charlie
+- Create discussion threads for general questions (eg how to to get data from Tableau Dashboards)
 
----
+???
 
-class: inverse, center, middle
+1. Any questions that came up during catch-up?
 
-# Four Tips
-
----
-
-## Updating columns
-
-There's a base R way of doing things
-
-```{r}
-your_data$question_12 <- as.numeric(your_data$question_12)
-```
-
-... and there's the tidyverse way of doing things
-
-```{r}
-your_data <- your_data %>% 
-  mutate(question_12 = as.numeric(question_12))
-```
-
----
-
-## coord_flip() is no longer necessary
-
-In [March 2020 ggplot2 3.0 was released](https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/) and removed the need to use `coord_flip()`.
-
---
-
-```{r}
-library(tidyverse)
-gss_cat %>% 
-  count(marital) %>% 
-  ggplot(aes(x = marital,
-             y = n)) +
-  geom_col() +
-  coord_flip()
-```
-
----
-
-```{r include = TRUE, eval = TRUE, fig.height = 5}
-library(tidyverse)
-gss_cat %>% 
-  count(marital) %>% 
-  ggplot(aes(x = marital,
-             y = n)) +
-  geom_col()
-```
-
----
-
-```{r include = TRUE, eval = TRUE, fig.height = 5}
-library(tidyverse)
-gss_cat %>% 
-  count(marital) %>% 
-  ggplot(aes(x = n,
-             y = marital)) +
-  geom_col()
-```
-
-
----
-
-## "Removed XX rows containing non-finite values (stat_bin)"
-
----
-
-```{r eval = TRUE, message=TRUE, warning = TRUE, fig.height = 5}
-ggplot(data = penguins,
-       aes(x = bill_length_mm,
-           y = bill_depth_mm)) +
-  geom_point()
-```
-
----
-
-## Handling SPSS files with labelled columns
-
----
-
-# Save Source, not Workspace
-
-Why do we not want to reload our data when we start RStudio? 
-
----
-
-class: center, middle
-
-[![](https://rstats.wtf/img/if-you-liked-it-you-should-have-saved-the-source-for-it.jpg)](https://rstats.wtf/save-source.html)
-
-Source: [rstats.wtf](https://rstats.wtf/save-source.html)
+2. I don't really know how to say this tactically...
 
 ---
 
 class: inverse, center, middle
 
-# Data Viz Examples
-
-
----
-
-## Oregon by the Numbers Example
+# Three Tips
 
 ---
 
-## Using conditions in `aes()`
+## Do all websites give download links?
+
+<a href='https://data.census.gov/cedsci/table?q=S2801&g=0100000US%240500000&tid=ACSST5Y2019.S2801&hidePreview=true'><center><img src='images/download-table.png' width='600px'/></center></a>
 
 ---
 
-# Data Visualization Questions
+## Do all websites give download links?
 
-What questions do you still have? 
+- Sometimes you can find an R package for accessing data
+
+  - [{tidycensus}](https://walker-data.com/tidycensus/) contains data from the US Census
+  
+  - [{WDI}](https://vincentarelbundock.github.io/WDI/) contains data from the World Bank
+  
+- You might be able to scrape the webpage or use an API (Charlie's putting together a discussion thread on this).
+
+---
+
+## Working with `tabyl` objects
+
+When you use `tabyl()` it creates a special `data.frame` which are manipulated with the `adorn_*()` functions.
+
+**But** sometimes you need to turn it back into a tibble:
+
+```{r}
+gss_cat %>% 
+  tabyl(marital) %>% 
+  adorn_totals(c("row", "col")) %>% 
+  untabyl()
+```
+
+---
+
+## Creating beautiful tables in RMarkdown
+
+There are **many** packages for creating beautiful tables in RMarkdown.
+
+- Create very simple tables with `knitr::kable()`
+
+- [Create fancy static tables with `{gt}`](https://themockup.blog/posts/2020-09-04-10-table-rules-in-r/)
+
+- Create fancy interactive tables with [{reactable}](https://glin.github.io/reactable/articles/womens-world-cup/womens-world-cup.html) or [{DT}](https://rstudio.github.io/DT/extensions.html#buttons)
+
+---
+
+class: inverse, center, middle
+
+# GitHub Workflow Advice
 
 ---
 
@@ -177,23 +120,17 @@ What questions do you still have?
 
 --
 
-1. `r emo::ji("desert_island")` Catch up week. `r emo::ji("desert_island")`
+1. Set-up a GitHub repo for your project
 
 --
 
-1. No additional assignments, but please complete anything you're behind on
+1. Add **charliejhadley** and **dgkeyes** as collaborators to the repository
 
 --
 
-1. No live session
+1. Submit your assignment as usual through the [Assignment Submission Lesson](https://rfortherestofus.com/courses/r-in-3-months-fall-2021/lessons/r-in-3-months-fall-2021-week-6-project-assignment/).
 
---
 
-1. Office hours **will** happen
-
---
-
-1. Book a one-to-one session with Charlie: [rfor.us/charliechat](https://rfor.us/charliechat)
 
 
 

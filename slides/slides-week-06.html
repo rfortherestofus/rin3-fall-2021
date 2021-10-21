@@ -43,11 +43,11 @@ layout: true
 
 --
 
-1. Three Tips
+1. Four Tips
 
 --
 
-1. GitHub Workflow Advice
+1. GitHub
 
 --
 
@@ -71,7 +71,7 @@ layout: true
 
 class: inverse, center, middle
 
-# Three Tips
+# Four Tips
 
 ---
 
@@ -97,7 +97,11 @@ class: inverse, center, middle
 
 When you use `tabyl()` it creates a special `data.frame` which are manipulated with the `adorn_*()` functions.
 
+--
+
 **But** sometimes you need to turn it back into a tibble:
+
+--
 
 
 ```r
@@ -113,17 +117,96 @@ gss_cat %&gt;%
 
 There are **many** packages for creating beautiful tables in RMarkdown.
 
+--
+
 - Create very simple tables with `knitr::kable()`
+
+--
 
 - [Create fancy static tables with `{gt}`](https://themockup.blog/posts/2020-09-04-10-table-rules-in-r/)
 
 - Create fancy interactive tables with [{reactable}](https://glin.github.io/reactable/articles/womens-world-cup/womens-world-cup.html) or [{DT}](https://rstudio.github.io/DT/extensions.html#buttons)
 
+--
+
+For more, see https://rfor.us/tables
+
+---
+
+## Rounding
+
+--
+
+&gt; Can you help me better understand the round function? I don’t understand the digits part? Does it only apply to decimals? What if you want to round to the nearest whole number what would you put? Or to round to the nearest 10?
+
+---
+
+## Rounding
+
+
+```r
+round(14.5)
+```
+
+--
+
+
+```
+## [1] 14
+```
+
+--
+
+The `round()` function rounds to the nearest **even** number
+
+---
+
+## Rounding
+
+If you want to round 0.5 up, use `janitor::round_half_up()`
+
+
+```r
+library(janitor)
+
+round_half_up(14.5)
+```
+
+--
+
+
+```
+## [1] 15
+```
+
 ---
 
 class: inverse, center, middle
 
-# GitHub Workflow Advice
+# Git + GitHub
+
+---
+
+class: center, middle
+
+## Group Work
+
+In a group, nominate one person to create a new project, add a local Git repository, and then push it to GitHub.
+
+--
+
+Have the nominated person share their screen and then walk through the steps as a group
+
+--
+
+Add any questions that come up to [this discussion thread](https://rfortherestofus.com/groups/r-in-3-months-fall-2021/forum/discussion/general-git-github-questions/).
+
+---
+
+class: inverse, center, middle
+
+## Git + GitHub Questions
+
 
 ---
 
@@ -131,15 +214,19 @@ class: inverse, center, middle
 
 --
 
-1. Set-up a GitHub repo for your project
+1. Advanced data wrangling
 
 --
 
-1. Add **charliejhadley** and **dgkeyes** as collaborators to the repository
+1. The main thing to make sense of is the concept of tidy data (it's a hard concept, but worth the effort to figure it out!)
 
 --
 
-1. Submit your assignment as usual through the [Assignment Submission Lesson](https://rfortherestofus.com/courses/r-in-3-months-fall-2021/lessons/r-in-3-months-fall-2021-week-6-project-assignment/).
+1. Project assignment: figure out ways your data is not tidy and tidy it (sounds simple, but it's not!)
+
+--
+
+1. You'll work in your GitHub repository from now on so you'll submit a link to the code in your repo for Charlie's review
 
 
 

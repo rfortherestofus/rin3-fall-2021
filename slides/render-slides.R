@@ -17,3 +17,5 @@ walk(html_files, chrome_print)
 md_files <- dir_ls(regexp = "slides-") 
 
 walk(md_files, file_delete)
+
+beepr::beep()

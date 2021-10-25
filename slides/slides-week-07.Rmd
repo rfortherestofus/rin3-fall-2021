@@ -1,0 +1,181 @@
+---
+title: "R in 3 Months: Week 7 (Tidy Data)"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r child = "setup.Rmd"}
+```
+
+```{r, include=FALSE, eval = TRUE}
+options(htmltools.preserve.raw = FALSE)
+library("tidyverse")
+library("wakefield")
+library(palmerpenguins)
+library(janitor)
+```
+
+
+# Agenda
+
+--
+
+1. Housekeeping
+
+--
+
+1. Three Tips
+
+--
+
+1. Group work
+
+--
+
+1. More about Tidy Data
+
+--
+
+1. Next Week
+
+---
+
+# Housekeeping
+
+- Charlie's office hours on Friday instead of Wednesday
+
+---
+
+class: inverse, center, middle
+
+# Three Tips
+
+---
+
+# XXX Need some tips XXX
+
+---
+class: inverse, center, middle
+
+# Group Work
+
+---
+
+# Group Work
+
+Copy the code from https://gist.github.com/dgkeyes/1d5ceb8b607266f1d197a218dd5c6882 into a new R script file. Then tidy the `gapminder_wide` data. 
+
+---
+
+class: inverse, center, middle
+
+# Tidy Data
+
+---
+
+### Tidy Data is more than just the pivot_*() functions
+
+If you're interested in the philosophy behind tidy data then [read Hadley Wickham's 2014 paper](https://doi.org/10.18637/jss.v059.i10) that introduced the concept.
+
+<br>
+
+The most **concise** description of tidy data is also provided by Hadley Wickham:
+
+> "Tidy datasets are all alike, but every messy dataset is messy in its own way"
+> 
+> Hadley Wickham
+
+---
+class: inverse, center, middle
+
+# Other functions for tidying data
+
+---
+
+# separate()
+
+The `separate()` function is useful when a column contains **multiple variables**.
+
+```{r, eval=TRUE}
+location_data <- tribble(
+  ~id, ~address,
+  1, "Las Vegas, USA",
+  2, "Bristol, UK",
+  3, "Kassala, Sudan"
+)
+location_data
+```
+
+]
+
+---
+
+# separate()
+
+```{r, eval=TRUE}
+location_data %>% 
+  separate(col = address,
+           into = c("city",
+                    "country"),
+           sep = ", ")
+```
+
+---
+
+## separate_rows()
+
+The `separate_rows()` function is useful when a column contains **multiple observations of the same variable**.
+
+---
+
+> ###  Which of these devices do you own? Please select all that apply.
+
+--
+
+```{r, eval=TRUE, echo=TRUE}
+device_ownership <- tribble(
+  ~name, ~devices_owned,
+  "Charlie", "Smart TV, Cell phone",
+  "Mohammad", "Cell phone",
+  "Christina", "Smart TV, Games Console, Cell phone"
+)
+device_ownership
+```
+
+---
+
+```{r, eval=TRUE, echo=TRUE}
+device_ownership %>% 
+  separate_rows(devices_owned,
+                sep = ", ")
+```
+
+---
+
+# Next Week
+
+--
+
+1. There are two big topics in the next week:
+
+  - Reducing repeatitive code with user-defined functions
+  
+  - Joining together datasets by shared columns
+  
+1. These skills will equip you to deal with more complex and larger scale data wrangling
+
+--
+
+1. Project assignment: XXX
+
+

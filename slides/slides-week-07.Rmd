@@ -48,7 +48,15 @@ library(janitor)
 
 # Housekeeping
 
-- Charlie's office hours on Friday instead of Wednesday
+How feedback will work
+
+--
+
+Charlie's office hours on Friday instead of Wednesday
+
+--
+
+Time change in Europe (but not US) next week
 
 ---
 

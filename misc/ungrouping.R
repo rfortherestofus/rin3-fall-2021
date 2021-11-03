@@ -26,7 +26,14 @@ enrollment_18_19 %>%
     race_ethnicity == "native_hawaiian_pacific_islander" ~ "Pacific Islander",
     race_ethnicity == "white" ~ "White"
   )) %>% 
-  group_by(district_id) %>%
+  group_by(race_ethnicity)  %>% 
+  summarize(number_of_students = sum(number_of_students, na.rm = TRUE)) %>% 
   mutate(pct = number_of_students / sum(number_of_students)) %>%
-  ungroup()
+  view()
+
+  group_by(district_id) %>%
+  ungroup() %>%
+  slice_max(order_by = pct,
+            n = 1) %>% 
+  view()
   

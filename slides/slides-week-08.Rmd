@@ -33,12 +33,11 @@ library(janitor)
 
 --
 
-1. Three Tips
+1. A Few of My Favorite Functions
 
 --
 
-1. A Few of My Favorite Functions
-
+1. Group Work
 
 --
 
@@ -60,45 +59,25 @@ Next week is another catch-up week.
 
 class: inverse, center, middle
 
-# Three Tips
-
----
-
-(I'll write these as I go through the feedback)
-
----
-
-# Group Task
-
-.pull-left[
-Recreate this chart using this Gist:
-https://rfor.us/week8groupgist
-]
-
-.pull-right[
-```{r, echo=FALSE,eval=TRUE, out.height='400px', dpi=300}
-spotify_songs %>% 
-  group_by(playlist_genre) %>% 
-  summarise(mean_duration = mean(duration_ms),
-            mean_danceability = mean(danceability)) %>% 
-  ggplot(aes(x = mean_duration,
-             y = mean_danceability)) +
-  geom_point(aes(color = playlist_genre),
-             size = 4) +
-  scale_color_manual(values = colors_genre) +
-  theme_bw(base_size = 16)
-```
-
-]
+# A Few of My Favorite Functions
 
 ---
 
 class: inverse, center, middle
 
-# A Few of My Favorite Functions
+## Group Work
 
 ---
 
+## Group Work
+
+Have one person share their screen.
+
+Copy the code from https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2021/main/misc/function-exercise.R.
+
+Working together, create a function that creates a scatterplot for any year. 
+
+---
 
 # Next Week
 

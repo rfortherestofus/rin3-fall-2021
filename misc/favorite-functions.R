@@ -1,3 +1,7 @@
+
+
+# A Few of My Favorite Functions ------------------------------------------
+
 library(flextable)
 library(officer)
 library(tidyverse)
@@ -7,8 +11,33 @@ library(palmerpenguins)
 library(scales)
 
 
-# omni_table --------------------------------------------------------------
+# Oregon by the Numbers ---------------------------------------------------
 
+obtn_boundaries_oregon_counties <- counties(state = "Oregon", cb = TRUE) %>% 
+  rename(geography = NAME) %>% 
+  select(geography)
+
+make_inset_map <- function(county) {
+  
+  highlight_county <- obtn_boundaries_oregon_counties %>% 
+    filter(geography == county)
+  
+  ggplot() +
+    geom_sf(data = obtn_boundaries_oregon_counties,
+            fill = "#a8a8a8",
+            color = "white",
+            size = 0.3) +
+    geom_sf(data = highlight_county,
+            fill = "#283593",
+            color = "white") +
+    theme_void()
+}
+
+make_inset_map("Baker")
+
+
+
+# omni_table --------------------------------------------------------------
 
 omni_table <- function(df) {
   df %>% 
@@ -66,30 +95,6 @@ penguins %>%
 
 
 
-
-# Oregon by the Numbers ---------------------------------------------------
-
-obtn_boundaries_oregon_counties <- counties(state = "Oregon", cb = TRUE) %>% 
-  rename(geography = NAME) %>% 
-  select(geography)
-
-make_inset_map <- function(county) {
-  
-  highlight_county <- obtn_boundaries_oregon_counties %>% 
-    filter(geography == county)
-  
-  ggplot() +
-    geom_sf(data = obtn_boundaries_oregon_counties,
-            fill = "#a8a8a8",
-            color = "white",
-            size = 0.3) +
-    geom_sf(data = highlight_county,
-            fill = "#283593",
-            color = "white") +
-    theme_void()
-}
-
-make_inset_map("Baker")
 
 
 

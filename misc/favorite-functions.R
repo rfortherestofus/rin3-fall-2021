@@ -13,9 +13,19 @@ library(scales)
 
 # Oregon by the Numbers ---------------------------------------------------
 
-obtn_boundaries_oregon_counties <- counties(state = "Oregon", cb = TRUE) %>% 
+obtn_boundaries_oregon_counties <- counties(state = "Oregon", cb = TRUE) %>%
   rename(geography = NAME) %>% 
   select(geography)
+
+obtn_boundaries_oregon_counties %>% 
+  ggplot() +
+  geom_sf()
+
+ggplot() +
+  geom_sf(data = obtn_boundaries_oregon_counties,
+          fill = "#a8a8a8",
+          color = "white",
+          size = 0.3)
 
 make_inset_map <- function(county) {
   
@@ -31,11 +41,26 @@ make_inset_map <- function(county) {
             fill = "#283593",
             color = "white") +
     theme_void()
+  
+  file_name <- str_replace(county, " ", "-")
+  
+  ggsave(filename = str_glue("inset-maps/{file_name}.pdf"))
+  
 }
 
 make_inset_map("Baker")
+make_inset_map("Hood River")
 
+oregon_counties <- obtn_boundaries_oregon_counties %>% 
+  pull(geography)
 
+oregon_counties
+
+walk(oregon_counties, make_inset_map)
+
+library(beepr)
+
+beep()
 
 # omni_table --------------------------------------------------------------
 
@@ -59,12 +84,22 @@ omni_table <- function(df) {
     border(part = "header", border.bottom = fp_border(color = "white")) 
 }
 
+pretty_variable_names <- c("Name of Island", "Number of Penguins", "Percent")
+
+pretty_variable_names_tibble <- tribble(~'Name of Island', ~'Number of Penguins', ~'Percent')
+
+pretty_variable_names <- pretty_variable_names_tibble %>% 
+  names()
+
 penguins %>% 
   count(island) %>% 
   mutate(pct = n / sum(n)) %>% 
   mutate(pct = percent(pct, accuracy = 1)) %>% 
+  set_names(pretty_variable_names) %>% 
   omni_table()
 
+penguins %>% 
+  omni_table()
 
 # theme_omni --------------------------------------------------------------
 
@@ -104,30 +139,32 @@ penguins %>%
 
 
 view_acs_variables <- function(year = 2019) {
-  tidycensus::load_variables(year, "acs5", cache = TRUE) %>%
-    tibble::view()
+  load_variables(year, "acs5", cache = TRUE) %>%
+    view()
 }
 
+load_variables(2019, "acs5", cache = TRUE) %>% 
+  glimpse()
 
-view_acs_variables()
-
-
-get_acs(variables = c("B03002_003", 
-                      "B03002_004", 
-                      "B03002_005",
-                      "B03002_006",
-                      "B03002_007",
-                      "B03002_008",
-                      "B03002_009",
-                      "B03002_010",
-                      "B03002_011",
-                      "B03002_012"),
-        geography = "state")
+view_acs_variables(year = 2017)
 
 
-get_acs_race_ethnicity <- function() {
+get_acs(variables = c("White" = "B03002_003",
+                      "Black/African American" = "B03002_004",
+                      "American Indian/Alaska Native" = "B03002_005",
+                      "Asian" = "B03002_006",
+                      "Native Hawaiian/Pacific Islander" = "B03002_007",
+                      "Other race" = "B03002_008",
+                      "Multi-Race" = "B03002_009",
+                      "Hispanic/Latino" = "B03002_012"),
+        geography = "state") %>% 
+  set_names(c("geoid", "geography", "population_group", "estimate", "moe")) %>% 
+  view()
+
+
+get_acs_race_ethnicity <- function(geography_to_use) {
   
-  get_acs(geography = "state",
+  get_acs(geography = geography_to_use,
           variables = c("White" = "B03002_003",
                         "Black/African American" = "B03002_004",
                         "American Indian/Alaska Native" = "B03002_005",
@@ -136,12 +173,11 @@ get_acs_race_ethnicity <- function() {
                         "Other race" = "B03002_008",
                         "Multi-Race" = "B03002_009",
                         "Hispanic/Latino" = "B03002_012")) %>%
-    clean_names() %>%
     set_names(c("geoid", "geography", "population_group", "estimate", "moe"))
   
 }
 
-get_acs_race_ethnicity()
+get_acs_race_ethnicity("county")
 
 
 

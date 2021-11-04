@@ -18,9 +18,15 @@ penguins %>%
 
 # Add to the code below to make a function that will make a scatterplot for any year.
 
-penguin_scatterplot <- function() {
+penguin_scatterplot <- function(year_filter) {
   
- 
+  penguins %>% 
+    filter(year == year_filter) %>% 
+    ggplot(aes(bill_length_mm,
+               bill_depth_mm)) +
+    geom_point() +
+    labs(title = str_glue("Penguin Scatterplot for {year_filter}"))
   
 }
 
+penguin_scatterplot(year_filter = 2008)

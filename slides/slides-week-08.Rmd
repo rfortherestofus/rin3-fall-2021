@@ -68,6 +68,31 @@ class: inverse, center, middle
 
 ---
 
+# Group Task
+
+.pull-left[
+Recreate this chart using this Gist:
+https://rfor.us/week8groupgist
+]
+
+.pull-right[
+```{r, echo=FALSE,eval=TRUE, out.height='400px', dpi=300}
+spotify_songs %>% 
+  group_by(playlist_genre) %>% 
+  summarise(mean_duration = mean(duration_ms),
+            mean_danceability = mean(danceability)) %>% 
+  ggplot(aes(x = mean_duration,
+             y = mean_danceability)) +
+  geom_point(aes(color = playlist_genre),
+             size = 4) +
+  scale_color_manual(values = colors_genre) +
+  theme_bw(base_size = 16)
+```
+
+]
+
+---
+
 class: inverse, center, middle
 
 # A Few of My Favorite Functions

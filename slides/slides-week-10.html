@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>R in 3 Months: Week 10 (Advanced Data Viz)</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+    <script src="libs/pagedtable-1.1/js/pagedtable.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# R in 3 Months: Week 10 (Advanced Data Viz)
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="dk-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://rfortherestofus.com/" target="_blank"&gt;R for the Rest of Us
+&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+# Agenda
+
+--
+
+1. Housekeeping
+
+--
+
+1. A Few of My Favorite Functions
+
+--
+
+1. Group Work
+
+--
+
+1. Next Week
+
+---
+
+# Housekeeping
+
+Next week is another catch-up week. 
+
+--
+
+Book another 1:1 with Charlie - [rfor.us/charliechat](https://rfor.us/charliechat)
+
+--
+
+Charlie will provide feedback for submissions made before 1st January 2021
+
+---
+
+class: inverse, center, middle
+
+# Example function submissions
+
+---
+
+# Sarah's data cleaning function
+
+.pull-left[
+
+```r
+clean_bat_data &lt;- function(raw_data, data_year) {
+  raw_data %&gt;% 
+    mutate(year = data_year) %&gt;%
+    rename(night = `date_12`) %&gt;% #
+    filter(auto_id != "Noise") %&gt;% 
+    group_by(folder) %&gt;% 
+    mutate(site = str_split(folder, pattern = "\\\\")[[1]][1]) %&gt;%  
+    ungroup()  
+}
+```
+
+]
+
+.pull-right[
+Sarah's function saves writing the same code for multiple data files.
+
+
+(Charlie - You've called this project rin3_R_bat_courseproject)
+]
+
+---
+
+# Juan's bar charts
+
+.pull-left[
+
+```r
+ability_bar_graphs &lt;- 
+  function(ability_type, title2) {
+  ggplot(data = ability_scale,
+         mapping = aes_string(x = ability_type)) +
+    geom_bar() +
+    coord_flip() +
+    labs(title = title2,
+         x = "Ability Rating",
+         y = "")
+}
+```
+
+]
+
+
+.pull-right[
+Juan's function creates a bar chart allowing the user to select the category column and the title of the chart.
+
+(Charlie - you called this project rin3_delete_r-project-juan)
+
+]
+
+---
+
+# Ione's cropping function
+
+.pull-left[
+&lt;img src='images/function-example_ione.png'/&gt;
+]
+
+.pull-right[
+Ione's function allows her to crop weather datasets to a specific region of interest.
+
+(Charlie - You've called this project rin3_delete_W8)
+]
+
+---
+
+# Hannah's group_by chart
+
+.pull-left[
+&lt;img src='images/function-examples_hannah.png' width='400px'/&gt;
+]
+
+.pull-right[
+This function depends on group_by() being passed a column name.
+
+(Charlie - You've called this project rin3_delete_Textile)
+]
+
+???
+
+
+---
+
+class: inverse, center, middle
+
+## Example Dataviz
+
+---
+
+# Charlie's diverging bars
+
+.pull-left[
+I'm going to work on building and improving this diverging bar chart for a continuous variable:
+
+![](slides-week-10_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+
+]
+
+.pull-right[
+David has written an [awesome blogpost](https://rfortherestofus.com/2021/10/diverging-bar-chart/) on diverging bar charts for a categorical variable.
+
+
+&lt;img src='https://rfortherestofus.com/wp-content/uploads/2021/10/diverging-bar-chart-featured-2048x1153.png'/&gt;
+]
+
+---
+
+# Next Week
+
+--
+
+Catch-up week
+
+--
+
+Please submit anything you're working on at any point
+
+--
+
+No live session but there will be office hours
+
+--
+
+Book another 1:1 with Charlie - [rfor.us/charliechat](https://rfor.us/charliechat)
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

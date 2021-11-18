@@ -256,15 +256,19 @@ Charlie's example code is in misc/charlies-data-viz-example.R
 
 --
 
-Catch-up week
+Course assignment: Advanced Data Viz, Part 1
 
 --
 
-Please submit anything you're working on at any point
+Project assignment: Take one of your previous visualizations and improve it using the principles you learn about this week (reordering, using color to highlight findings, etc)
 
 --
 
 No live session but there will be office hours
+
+--
+
+Please submit anything you're working on at any point
 
 --
 

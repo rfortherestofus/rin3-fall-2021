@@ -37,7 +37,7 @@ library(janitor)
 
 --
 
-1. Group Work
+1. Examples of High-Quality Data Viz
 
 --
 
@@ -45,17 +45,39 @@ library(janitor)
 
 ---
 
+class: inverse, center, middle
+
 # Housekeeping
 
-Next week is another catch-up week. 
+---
 
---
+## Remaining Schedule
+
+Week 10 (starting after live session November 18): Advanced data viz, part 1
+
+Thursday, November 25 is US Thanksgiving so we will not have a live session
+
+Week 11 (starting after live session November 25): Advanced data viz, part 2
+
+Week 12 (starting after live session December 2): Advanced RMarkdown
+
+Last live session: December 16
+
+---
+
+## 1:1 with Charlie
 
 Book another 1:1 with Charlie - [rfor.us/charliechat](https://rfor.us/charliechat)
 
---
+---
+
+## Deadline for Feedback
 
 Charlie will provide feedback for submissions made before 1st January 2021
+
+--
+
+You'll have access to materials FOREVER
 
 ---
 
@@ -65,7 +87,7 @@ class: inverse, center, middle
 
 ---
 
-# Sarah's data cleaning function
+## Sarah's data cleaning function
 
 .pull-left[
 ```{r}
@@ -91,7 +113,7 @@ Sarah's function saves writing the same code for multiple data files.
 
 ---
 
-# Juan's bar charts
+## Juan's bar charts
 
 .pull-left[
 ```{r}
@@ -119,7 +141,7 @@ Juan's function creates a bar chart allowing the user to select the category col
 
 ---
 
-# Ione's cropping function
+## Ione's cropping function
 
 .pull-left[
 <img src='images/function-example_ione.png'/>
@@ -133,7 +155,7 @@ Ione's function allows her to crop weather datasets to a specific region of inte
 
 ---
 
-# Hannah's group_by chart
+## Hannah's group_by chart
 
 .pull-left[
 <img src='images/function-examples_hannah.png' width='400px'/>
@@ -152,11 +174,11 @@ This function depends on group_by() being passed a column name.
 
 class: inverse, center, middle
 
-## Example Dataviz
+# Examples of High-Quality Data Viz
 
 ---
 
-# Charlie's diverging bars
+## Charlie's diverging bars
 
 .pull-left[
 I'm going to work on building and improving this diverging bar chart for a continuous variable:
@@ -219,6 +241,14 @@ David has written an [awesome blogpost](https://rfortherestofus.com/2021/10/dive
 ???
 
 Charlie's example code is in misc/charlies-data-viz-example.R
+
+---
+
+## CBEM Bar Charts
+
+![](images/cbem-example.jpeg)
+
+
 
 ---
 

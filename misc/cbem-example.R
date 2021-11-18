@@ -8,6 +8,7 @@ library(scales)
 library(shadowtext)
 library(ggchicklet)
 library(hrbrthemes)
+library(omni)
 
 
 # Import Data ------------------------------------------------------------
@@ -15,7 +16,10 @@ library(hrbrthemes)
 cbem <- read_csv("data/cbem.csv")
 
 
-# Single Chart ------------------------------------------------------------
+
+# Prep Data ---------------------------------------------------------------
+
+
 
 cbem_filtered <- cbem %>% 
   filter(age_group == "Under 18") %>% 
@@ -31,6 +35,18 @@ cbem_state_avg <- cbem %>%
   select(percent) %>% 
   mutate(plot_label = str_glue("CBEM State Rate\n{percent(percent, accuracy = 0.1)}"))
 
+cbem_race_ethnicity_colors <- c(
+  "American Indian or Alaska Native" = "#9CC892",
+  "Asian or Pacific Islander" = "#0066cc",
+  "Black or African American" = "#477A3E",
+  "White" = "#6CC5E9",
+  "Hispanic or Latino" = "#ff7400"
+)
+
+
+# Plot --------------------------------------------------------------------
+
+
 
 cbem_filtered %>% 
   ggplot(aes(group_x_pos, percent,
@@ -41,7 +57,7 @@ cbem_filtered %>%
              color = "#757575",
              linetype = "dashed") +
   geom_shadowtext(data = cbem_state_avg,
-                  aes(x = 5.25, y = percent,
+                  aes(x = max(cbem_filtered$group_x_pos), y = percent,
                       label = plot_label),
                   inherit.aes = FALSE,
                   lineheight = 1,
@@ -54,20 +70,14 @@ cbem_filtered %>%
   geom_chicklet() +
   
   # Text on bars
-  geom_text(aes(group_x_pos, percent,
-                label = plot_label),
+  geom_text(aes(label = plot_label),
             vjust = 1.5,
             family = "Futura",
             color = "white") +
   
   # Fill colors
-  scale_fill_manual(values = c(
-    "American Indian or Alaska Native" = "#9CC892",
-    "Asian or Pacific Islander" = "#0066cc",
-    "Black or African American" = "#477A3E",
-    "White" = "#6CC5E9",
-    "Hispanic or Latino" = "#ff7400"
-  )) +
+  # scale_fill_manual(values = cbem_race_ethnicity_colors) +
+  scale_fill_omni_discrete() +
   
   # Theme
   theme_ipsum(

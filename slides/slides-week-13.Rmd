@@ -1,0 +1,51 @@
+---
+title: "R in 3 Months: Week 12 (Advanced Data Viz)"
+output:
+  xaringan::moon_reader:
+    css: ["style.css", "default"]
+    lib_dir: libs
+    df_print: paged
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r child = "setup.Rmd"}
+```
+
+```{r, include=FALSE, eval = TRUE}
+options(htmltools.preserve.raw = FALSE)
+library(tidyverse)
+library(fivethirtyeight)
+library(readxl)
+library(janitor)
+library(patchwork)
+library(here)
+library(gapminder)
+library(ggtext)
+```
+
+
+# Agenda
+
+--
+
+1. Assignments amnesty
+
+---
+
+# Mention a distill/netlify website
+
+Create a HTML and then push it to a GitHub Repo.
+
+
+
+
+
+
+
+

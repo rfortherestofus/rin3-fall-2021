@@ -40,3 +40,9 @@ library(ggtext)
 
 Highlight stuff from everyone!
 
+---
+
+# Feedback form!
+
+https://forms.gle/fmGYCz2vbYcttyJVA
+

@@ -42,6 +42,11 @@ library(ggtext)
 
 Create a HTML and then push it to a GitHub Repo.
 
+---
+
+# Feedback form!
+
+https://forms.gle/fmGYCz2vbYcttyJVA
 
 
 

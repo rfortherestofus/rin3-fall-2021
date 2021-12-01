@@ -270,11 +270,6 @@ In the reminder email last week I set out the assignment as follows:
 
 > Try new geoms, tables or coloured titles to add story to your charts.
 
-... but this might be a little to general. 
-
-Here's an alternative choice of assignment:
-
-> Create a custom {ggplot2} theme
 
 ---
 
@@ -322,21 +317,9 @@ Decipher the visualization.
 
 --
 
-Course assignment: Advanced Data Viz, Part 2
+Course assignment: Advanced RMarkdown
 
 --
 
-Project assignment: 
-
-- Try new geoms, tables or coloured titles to add story to your charts
-
-- Create a custom {ggplot2} theme
-
---
-
-Final assignemnt: think about recording a quick overview of something you've learned through R in 3 Months.
-
---
-
-Book another 1:1 with Charlie - [rfor.us/charliechat](https://rfor.us/charliechat)
+Project assignment: Switch your report to some other format (slides, dashboard, etc)
 

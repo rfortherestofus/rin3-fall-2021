@@ -91,24 +91,25 @@ billboard
 
 ```
 ## # A tibble: 317 × 79
-##    artist   track    date.entered   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8   wk9  wk10  wk11  wk12  wk13  wk14  wk15  wk16  wk17  wk18
-##    &lt;chr&gt;    &lt;chr&gt;    &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1 2 Pac    Baby Do… 2000-02-26      87    82    72    77    87    94    99    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
-##  2 2Ge+her  The Har… 2000-09-02      91    87    92    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
-##  3 3 Doors… Krypton… 2000-04-08      81    70    68    67    66    57    54    53    51    51    51    51    47    44    38    28    22    18
-##  4 3 Doors… Loser    2000-10-21      76    76    72    69    67    65    55    59    62    61    61    59    61    66    72    76    75    67
-##  5 504 Boyz Wobble … 2000-04-15      57    34    25    17    17    31    36    49    53    57    64    70    75    76    78    85    92    96
-##  6 98^0     Give Me… 2000-08-19      51    39    34    26    26    19     2     2     3     6     7    22    29    36    47    67    66    84
-##  7 A*Teens  Dancing… 2000-07-08      97    97    96    95   100    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA
-##  8 Aaliyah  I Don't… 2000-01-29      84    62    51    41    38    35    35    38    38    36    37    37    38    49    61    63    62    67
-##  9 Aaliyah  Try Aga… 2000-03-18      59    53    38    28    21    18    16    14    12    10     9     8     6     1     2     2     2     2
-## 10 Adams, … Open My… 2000-08-26      76    76    74    69    68    67    61    58    57    59    66    68    61    67    59    63    67    71
-## # … with 307 more rows, and 58 more variables: wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, wk22 &lt;dbl&gt;, wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;, wk25 &lt;dbl&gt;,
-## #   wk26 &lt;dbl&gt;, wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;, wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;, wk31 &lt;dbl&gt;, wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;, wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;,
-## #   wk37 &lt;dbl&gt;, wk38 &lt;dbl&gt;, wk39 &lt;dbl&gt;, wk40 &lt;dbl&gt;, wk41 &lt;dbl&gt;, wk42 &lt;dbl&gt;, wk43 &lt;dbl&gt;, wk44 &lt;dbl&gt;, wk45 &lt;dbl&gt;, wk46 &lt;dbl&gt;, wk47 &lt;dbl&gt;,
-## #   wk48 &lt;dbl&gt;, wk49 &lt;dbl&gt;, wk50 &lt;dbl&gt;, wk51 &lt;dbl&gt;, wk52 &lt;dbl&gt;, wk53 &lt;dbl&gt;, wk54 &lt;dbl&gt;, wk55 &lt;dbl&gt;, wk56 &lt;dbl&gt;, wk57 &lt;dbl&gt;, wk58 &lt;dbl&gt;,
-## #   wk59 &lt;dbl&gt;, wk60 &lt;dbl&gt;, wk61 &lt;dbl&gt;, wk62 &lt;dbl&gt;, wk63 &lt;dbl&gt;, wk64 &lt;dbl&gt;, wk65 &lt;dbl&gt;, wk66 &lt;lgl&gt;, wk67 &lt;lgl&gt;, wk68 &lt;lgl&gt;, wk69 &lt;lgl&gt;,
-## #   wk70 &lt;lgl&gt;, wk71 &lt;lgl&gt;, wk72 &lt;lgl&gt;, wk73 &lt;lgl&gt;, wk74 &lt;lgl&gt;, wk75 &lt;lgl&gt;, wk76 &lt;lgl&gt;
+##    artist   track   date.entered   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 2 Pac    Baby D… 2000-02-26      87    82    72    77    87    94    99    NA
+##  2 2Ge+her  The Ha… 2000-09-02      91    87    92    NA    NA    NA    NA    NA
+##  3 3 Doors… Krypto… 2000-04-08      81    70    68    67    66    57    54    53
+##  4 3 Doors… Loser   2000-10-21      76    76    72    69    67    65    55    59
+##  5 504 Boyz Wobble… 2000-04-15      57    34    25    17    17    31    36    49
+##  6 98^0     Give M… 2000-08-19      51    39    34    26    26    19     2     2
+##  7 A*Teens  Dancin… 2000-07-08      97    97    96    95   100    NA    NA    NA
+##  8 Aaliyah  I Don'… 2000-01-29      84    62    51    41    38    35    35    38
+##  9 Aaliyah  Try Ag… 2000-03-18      59    53    38    28    21    18    16    14
+## 10 Adams, … Open M… 2000-08-26      76    76    74    69    68    67    61    58
+## # … with 307 more rows, and 68 more variables: wk9 &lt;dbl&gt;, wk10 &lt;dbl&gt;,
+## #   wk11 &lt;dbl&gt;, wk12 &lt;dbl&gt;, wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;,
+## #   wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;, wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, wk22 &lt;dbl&gt;,
+## #   wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;, wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;, wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;,
+## #   wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;, wk31 &lt;dbl&gt;, wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;,
+## #   wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;, wk37 &lt;dbl&gt;, wk38 &lt;dbl&gt;, wk39 &lt;dbl&gt;, wk40 &lt;dbl&gt;,
+## #   wk41 &lt;dbl&gt;, wk42 &lt;dbl&gt;, wk43 &lt;dbl&gt;, wk44 &lt;dbl&gt;, wk45 &lt;dbl&gt;, wk46 &lt;dbl&gt;, …
 ```
 
 
@@ -239,11 +240,6 @@ In the reminder email last week I set out the assignment as follows:
 
 &gt; Try new geoms, tables or coloured titles to add story to your charts.
 
-... but this might be a little to general. 
-
-Here's an alternative choice of assignment:
-
-&gt; Create a custom {ggplot2} theme
 
 ---
 
@@ -291,23 +287,11 @@ Decipher the visualization.
 
 --
 
-Course assignment: Advanced Data Viz, Part 2
+Course assignment: Advanced RMarkdown
 
 --
 
-Project assignment: 
-
-- Try new geoms, tables or coloured titles to add story to your charts
-
-- Create a custom {ggplot2} theme
-
---
-
-Final assignemnt: think about recording a quick overview of something you've learned through R in 3 Months.
-
---
-
-Book another 1:1 with Charlie - [rfor.us/charliechat](https://rfor.us/charliechat)
+Project assignment: Switch your report to some other format (slides, dashboard, etc)
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

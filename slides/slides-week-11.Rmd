@@ -38,7 +38,7 @@ library(ggtext)
 
 --
 
-1. House keeping
+1. Housekeeping
 
 --
 
@@ -54,7 +54,7 @@ library(ggtext)
 
 --
 
-1. Next Week
+1. Next week
 
 ---
 

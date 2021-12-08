@@ -1,7 +1,5 @@
-R in 3 Months: 2021 Fall Edition
+R in 3 Months: Fall 2021
 ================
-
-# R in 3 Months: Fall 2021
 
 ### Sep 16: Welcome
 

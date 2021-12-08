@@ -1,5 +1,5 @@
 ---
-title: "R in 3 Months: 2021 Fall Edition"
+title: "R in 3 Months: Fall 2021"
 output: github_document
 ---
 
@@ -10,8 +10,6 @@ knitr::opts_chunk$set(
 	warning = FALSE
 )
 ```
-
-# R in 3 Months: Fall 2021
 
 ### Sep 16: Welcome
 

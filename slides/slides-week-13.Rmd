@@ -1,5 +1,5 @@
 ---
-title: "R in 3 Months: Week 12 (Advanced Data Viz)"
+title: "R in 3 Months: Week 13 (Advanced RMarkdown)"
 output:
   xaringan::moon_reader:
     css: ["style.css", "default"]
@@ -71,28 +71,27 @@ We've seen that you can make the following:
 
 .pull-right[
 
-- Beautiful books with {bookdown}
+- Beautiful books with `bookdown`
 
-- Beautiful reports with {pagedown}
+- Beautiful reports with `pagedown`
 
-- Beautiful slides with {xaringan}
-
-- Friendly Readme pages for GitHub repos
+- Beautiful slides with `xaringan`
 
 - Programmatically generated reports
 
-- Data blogs written all in RMarkdown!
-
 - Dashboards (... and even shiny apps!)
 
+- Websites all in RMarkdown!
+
+
 ]
 
 ---
 
-# Beautiful books with {bookdown}
+# Beautiful books with `bookdown`
 
 .pull-left[
-The {bookdown} package was used for writing R for Data Science and many other extremely useful R books.
+The `bookdown` package was used for writing R for Data Science and many other extremely useful R books.
 ]
 
 .pull-right[
@@ -102,12 +101,12 @@ The {bookdown} package was used for writing R for Data Science and many other ex
 
 ---
 
-# Beautiful books with {bookdown}
+# Beautiful books with `bookdown`
 
 .pull-left[
-The {bookdown} package was used for writing R for Data Science and many other extremely useful R books.
+The `bookdown` package was used for writing R for Data Science and many other extremely useful R books.
 
-I also wrote a discussion thread about how [{bookdown} is necessary to add internal cross-referencing to your documents](https://rfortherestofus.com/groups/r-in-3-months-fall-2021/forum/discussion/bibliographies-and-cross-referencing-in-rmarkdown/).
+I also wrote a discussion thread about how [`bookdown` is necessary to add internal cross-referencing to your documents](https://rfortherestofus.com/groups/r-in-3-months-fall-2021/forum/discussion/bibliographies-and-cross-referencing-in-rmarkdown/).
 ]
 
 .pull-right[
@@ -117,10 +116,10 @@ I also wrote a discussion thread about how [{bookdown} is necessary to add inter
 
 ---
 
-# Beautiful reports with {pagedown}
+# Beautiful reports with `pagedown`
 
 .pull-left[
-The {pagedown} package is designed to radically simplify designing documents you need to print.
+The `pagedown` package is designed to radically simplify designing documents you need to print.
 
 Instead of learning `LaTeX` you can use HTML and CSS!
 
@@ -132,10 +131,10 @@ Instead of learning `LaTeX` you can use HTML and CSS!
 
 ---
 
-# {pagedreport}
+# `pagedreport`
 
 .pull-left[
-R for the Rest of Us has created a package called [{pagedreport}](https://pagedreport.rfortherestofus.com/) that adds several templates to {pagedown.}
+R for the Rest of Us has created a package called [`pagedreport`](https://pagedreport.rfortherestofus.com/) that adds several templates to {pagedown.}
 
 ]
 
@@ -145,9 +144,9 @@ R for the Rest of Us has created a package called [{pagedreport}](https://pagedr
 
 ---
 
-# Beautiful slides with {xaringan}
+# Beautiful slides with `xaringan`
 
-These lecture slides were written with {xaringan}.
+These lecture slides were written with `xaringan`.
 
 They look really nice, plus they prevent you from writing too much on each slide.
 
@@ -159,47 +158,9 @@ cat(stringi::stri_rand_lipsum(2))
 
 ---
 
-## Friendly Readme files for GitHub repos
+# Parameterized reports
 
-README.md files make GitHub repos much more reader friendly.
-
-These can be created with RMarkdown as follows
-
-```{yaml}
----
-title: "R in 3 Months Lecture Slides"
-output: github_document
----
-```
-
-... which you can see on [the repo for these slides](https://github.com/rfortherestofus/rin3-fall-2021).
-
----
-
-# Programmatically generated reports
-
-There are several different ways that RMarkdown reports can be made more *programmatic*:
-
-1. Split a long, complex report into separate RMarkdown documents.
-
-```{yaml}
-complex-report/ - main-report.Rmd
-                - state-overview.Rmd
-                - interview-analysis.Rmd
-                - quantiative-analysis.Rmd
-```
-
-We used that technique when writing the [2020 Census state-by-state reports for the FCCP](https://funderscommittee.org/2020censusstatereports/).
-
----
-
-# Programmatically generated reports
-
-There are several different ways that RMarkdown reports can be made more *programmatic*:
-
-1. Split a long, complex report into separate RMarkdown documents.
-
-1. Use [parametrized RMarkdown reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) to make a separate report for each region
+Use [parametrized RMarkdown reporting](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) to make a separate report for each region
 
 ```{yaml}
 ---
@@ -207,52 +168,43 @@ params:
   state: "Alaska"
 title: "`r params$state` Report"
 ---
+  
 ```
-````markdown
-`r ''````{r}
+
+```{r eval = FALSE}
 qualitative_data %>% 
   filter(state == params$state)
 ```
-````
 
----
-
-# Programmatically generated reports
-
-There are several different ways that RMarkdown reports can be made more *programmatic*:
-
-1. Split a long, complex report into separate RMarkdown documents.
-
-1. Use [parametrized RMarkdown reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) to make a separate report for each region
-
-3. Generate many charts and programmatically insert these into your document.
-
-```{r}
-src <- map(levels(unique(gapminder$continent)), function(continent)
-  knit_expand(text = c(
-    "```{r gg-gapminder-{{tolower(continent)}}-scatter, fig.cap='Scatter plot for {{continent}}'}",
-    "knitr::include_graphics('gapminder_{{tolower(continent)}}_scatter.png')",
-    "```"
-  )))
-```
-
-???
-
-I'd like to write a blogpost about this for R for the Rest of Us.
 
 ---
 
 class: inverse, center, middle
 
-# Data blogs written all in RMarkdown! <br><br>A {distill} demo
+# Websites created all in RMarkdown! <br><br>A `distill` demo
 
 ---
 
-# {distill} for websites (and blogs)
+# `distill` for websites (and blogs)
 
-Using {distill} is the easiest way to create a fully functioning data blog with RMArkdown.
+Using `distill` is the easiest way to create a fully functioning data blog with RMarkdown.
 
 We'll put together a thorough discussion thread about this.
+
+---
+
+
+# Final Week
+
+Charlie will host her office hours as usual at 12pm Wednesday.
+
+In the live session we'll cover:
+
+- What resources to use next.
+
+- How to ask reproducible questions with {reprex}
+
+- Highlighted assignment submissions from **you folks**!
 
 ---
 
@@ -274,54 +226,58 @@ We'd like you to record a 5 minute video showing something you can now do with y
 
 > [Loom.com](https://www.loom.com/pricing) has a free tier that will allow you to record and share 5 minute videos.
 
-There's a form to fill on [Week 13's assignment submission page](https://rfortherestofus.com/courses/r-in-3-months-fall-2021/lessons/r-in-3-months-fall-2021-week-12-project-assignment/).
+There's a form to fill on [Week 13's assignment submission page](https://rfortherestofus.com/courses/r-in-3-months-fall-2021/lessons/r-in-3-months-fall-2021-final-project-assignment/).
+
 
 ---
 
-class: inverse, center, middle
-
-# Final week: let's see what you did!
-
----
-
-# Final Week
-
-Charlie will host her office hours as usual at 12pm Wednesday.
-
-In the live session we'll cover:
-
-- What resources to use next.
-
-- How to ask reproducible questions with {reprex}
-
-- Highlighted assignment submissions from **you folks**!
-
----
-
-# R in 3 Months Survey
+# Feedback
 
 We love doing R in 3 Months and want to continually improve it.
 
-Please fill in our post course survey - [rfor.us/rin3-fall21-feedback](https://rfor.us/rin3-fall21-feedback)
+There are two ways we want to collect feedback:
+
+--
+
+1. Open-ended discussion of what went well, what can be improved, etc. David will start it out. 
+
+--
+
+2. Post-survey that shows your skill now (we'll compare this to what you told us in the pre-survey)
+
 
 ---
 
-# Feedback form!
+## Post-Survey
 
-https://forms.gle/fmGYCz2vbYcttyJVA
+rfor.us/rin3-fall21-feedback
 
 
 ---
 
 # Next Week
 
+--
+
+- No course assignments
+
+--
+
 - Record a <5 minutes video showing what you've learned
 
-- Please complete our survey [rfor.us/rin3-fall21-feedback](https://rfor.us/rin3-fall21-feedback)
+--
+
+- Please provide any feedback to reflection thread David will create
+
+--
+
+- Please complete post-survey [rfor.us/rin3-fall21-feedback](https://rfor.us/rin3-fall21-feedback)
+
+--
 
 - Charlie's office hours are still on
 
-- The live session will give you pointers of where to go next.
+- The live session will give you pointers of where to go next
 
 
 

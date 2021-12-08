@@ -7,7 +7,8 @@ penguins_raw %>%
   clean_names() %>% 
   select(sex) %>% 
   mutate(sex_factor = as.factor(sex)) %>% 
-  mutate(sex_numeric = as.numeric(sex_factor))
+  mutate(sex_numeric = as.numeric(sex_factor)) %>% 
+  pull(sex_factor)
 
 
 penguins %>% 

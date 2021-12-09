@@ -134,7 +134,7 @@ Instead of learning `LaTeX` you can use HTML and CSS!
 # `pagedreport`
 
 .pull-left[
-R for the Rest of Us has created a package called [`pagedreport`](https://pagedreport.rfortherestofus.com/) that adds several templates to {pagedown.}
+R for the Rest of Us has created a package called [`pagedreport`](https://pagedreport.rfortherestofus.com/) that adds several templates to `pagedown`.
 
 ]
 

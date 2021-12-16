@@ -1,0 +1,105 @@
+---
+title: "Post R in 3 Months Growth Report"
+author: "Charlie Hadley"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(googlesheets4)
+library(hrbrthemes)
+library(scales)
+library(ggtext)
+```
+
+```{r}
+survey_pre_raw <- read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit#gid=1201619159") %>% 
+  clean_names() %>% 
+  select(how_much_have_you_used_r:on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r)
+
+survey_post_raw <- read_sheet("https://docs.google.com/spreadsheets/d/1-13eTpxXFsqwhwUZ2KU4zM-NP-ZGQp4VdtxVWISOqco/edit?resourcekey#gid=1471256265") %>% 
+  clean_names()
+```
+
+# Self-rated expertise
+
+```{r}
+survey_pre_expertise <- survey_pre_raw %>% 
+  select(contains("rate")) %>% 
+  mutate(timing = "Pre") %>% 
+  set_names(c("data_analysis", "data_viz", "timing"))
+
+survey_post_expertise <- survey_post_raw %>% 
+  select(contains("rate")) %>% 
+  mutate(timing = "Post") %>% 
+  set_names(c("data_analysis", "data_viz", "timing"))
+
+survey_data_expertise <- bind_rows(survey_pre_expertise, survey_post_expertise) %>% 
+  pivot_longer(cols = -timing,
+               names_to = "item",
+               values_to = "rating")
+
+gg_slope_chart <- function(survey_data, title){
+  survey_data %>% 
+  group_by(timing, item) %>% 
+  summarize(avg_rating = mean(rating, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  mutate(timing = factor(timing, levels = c("Pre", "Post"))) %>% 
+  mutate(avg_rating_formatted = number(avg_rating, accuracy = 0.1)) %>% 
+  mutate(item = str_replace(item, "_", " ")) %>% 
+  mutate(item = str_to_title(item)) %>% 
+  ggplot(aes(x = timing,
+             y = avg_rating,
+             color = timing,
+             label = avg_rating_formatted,
+             group = item)) +
+  geom_line(color = "grey70") +
+  geom_point(size = 10) +
+  geom_text(color = "white",
+            family = "Inter") +
+  scale_y_continuous(limits = c(1, 10),
+                     breaks = c(1, 5, 10)) +
+  scale_color_manual(values = c("Pre" = "#6cabdd",
+                                "Post" = "#ff7400")) +
+  facet_wrap(~item) +
+  labs(title = title) +
+  theme_ipsum() +
+  theme(panel.grid.major.x = element_blank(),
+        plot.title = element_markdown(color = "grey20",
+                                      hjust = 0.5),
+        legend.position = "none",
+        axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.title.x = element_blank())
+}
+
+gg_slope_chart(survey_data_expertise, "Increased sense of <em>expertise</em> between <span style='color: #6cabdd'>Pre</span> to <span style='color: #ff7400'>Post</span> survey")
+```
+
+# Excitement about R
+
+```{r}
+survey_pre_excitement <- survey_pre_raw %>% 
+  select(contains("excited")) %>% 
+  mutate(timing = "Pre") %>% 
+  set_names(c("excitement", "timing"))
+
+survey_post_excitement <- survey_post_raw %>% 
+  select(contains("excited")) %>% 
+  mutate(timing = "Post") %>% 
+  set_names(c("excitement", "timing"))
+
+survey_data_excitement <- bind_rows(survey_pre_excitement, survey_post_excitement) %>% 
+  pivot_longer(cols = -timing,
+               names_to = "item",
+               values_to = "rating")
+
+gg_slope_chart(survey_data_excitement, "Increased sense of <em>excitement about R</em> between <span style='color: #6cabdd'>Pre</span> to <span style='color: #ff7400'>Post</span> survey")
+```

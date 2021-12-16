@@ -65,7 +65,7 @@ gg_slope_chart <- function(survey_data, title){
   geom_text(color = "white",
             family = "Inter") +
   scale_y_continuous(limits = c(1, 10),
-                     breaks = c(1, 5, 10)) +
+                     breaks = seq(0, 10, 2)) +
   scale_color_manual(values = c("Pre" = "#6cabdd",
                                 "Post" = "#ff7400")) +
   facet_wrap(~item) +
@@ -75,7 +75,6 @@ gg_slope_chart <- function(survey_data, title){
         plot.title = element_markdown(color = "grey20",
                                       hjust = 0.5),
         legend.position = "none",
-        axis.text.y = element_blank(),
         axis.title.y = element_blank(),
         axis.title.x = element_blank())
 }

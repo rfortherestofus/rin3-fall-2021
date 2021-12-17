@@ -252,7 +252,7 @@ Let's take a look at this with `misc/scatter-astericks.R`
 
 ## Ione's {gganimate} bar chart
 
-Let's take a look at this with `misc/gganimate-bars.R`
+Let's take a look at this with `misc/gganimate-bars.R` (and [racing bar charts](https://evamaerey.github.io/little_flipbooks_library/racing_bars/racing_barcharts.html#35))
 
 <img src="images/iones-week-11-gif.gif"/>
 

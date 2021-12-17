@@ -8,11 +8,10 @@ gapminder %>%
 
 
 
-gapminder_wide <- gapminder %>% 
-  filter(year %in% c(1952, 1962, 1972, 1982),
-         continent == "Europe") %>% 
-  pivot_wider(names_from = year,
-              values_from = c(lifeExp, pop, gdpPercap))
+
+
+
+
 
 
 
